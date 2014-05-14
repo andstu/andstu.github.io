@@ -1,7 +1,85 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html>
+<head>
+<script src = "decoderencoder.js"> </src>
+<script type="text/javascript">
+var lengthTester = function () {
+var x = prompt("What do you want to find the legnth of?");
+console.log(x);
+
+};
+
+
+var die = function () {
+var again = "yes";
+var sides = prompt("How many sides does the die have? ie. 20 for a d20.")
+while(again === "yes") {
+var roll = Math.floor((Math.random()*sides)+1);
+alert(roll)
+again = prompt("Roll again?");
+console.log("WOW YOU OPENED THE CONSOLE!!!");
+}
+};
+var RockPaperScissors = function () {
+confirm("Please open the console to Play.");
+confirm("It is ctrl + shift + J in Google Chrome");
+var userChoice = prompt("Do you choose rock, paper or scissors?");
+compare(userChoice, computerChoice);
+};
+
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+	computerChoice = "rock";
+} else if(computerChoice <= 0.67) {
+	computerChoice = "paper";
+} else {
+	computerChoice = "scissors";
+}
+var compare = function (choice1, choice2) {
+    if (choice1 === choice2) {
+        return("The result is a tie!");
+    }
+    else if (choice1 === "rock") {
+        if (choice2 === "scissors") 
+            {return "rock wins";}
+    else 
+        {return ("paper wins");}
+        
+    }
+    else if (choice1 === "paper") {
+        if (choice2 === "rock") {
+            return "paper wins";
+        }
+        else {
+            return "scissors wins";
+        }
+    }
+    else if (choice1 === "scissors") {
+        if (choice2 === "rock") {
+            return "rock wins";
+        }
+        else {
+            return "scissors wins";
+        }
+    }
+    else {
+        return "You idiot, trying to mess me up!"
+    }
+};
+
+
+</script>
+</script>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<button onclick="lengthTester()">Find the Length of a Word</button>
+<button onclick="die()">Roll a Die With a Custom Number of Sides</button>
+<button onclick="RockPaperScissors()">Play Rock Paper Scissors</button>
+<button onclick="encode()">Encode</button>
+<button onclick="decode()">Decode</button>
+
+
+
 </body>
 </html>
