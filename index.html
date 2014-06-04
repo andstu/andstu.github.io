@@ -1,86 +1,97 @@
-<html>
-<title> Andstu's Website </title>
-<head>
 <script type="text/javascript">
-var lengthTester = function () {
-var x = prompt("What do you want to find the legnth of?");
-console.log(x);
-
-};
-
-
-var die = function () {
-var again = "yes";
-var sides = prompt("How many sides does the die have? ie. 20 for a d20.")
-while(again === "yes") {
-var roll = Math.floor((Math.random()*sides)+1);
-alert(roll)
-again = prompt("Roll again?");
-console.log("WOW YOU OPENED THE CONSOLE!!!");
+function encode (str, code) {
+var result = "";
+str = str.toLowerCase();
+for (var i = 0; i < str.length; i++) {
+switch (str[i]) {
+case 'a' : result = result + code[0];
+break;
+case 'b' :result = result + code[1];
+break;
+case 'c' : result = result + code[2];
+break;
+case 'd' : result = result + code[3];
+break;
+case 'e' : result = result + code[4];
+break;
+case 'f' : result = result + code[5];
+break;
+case 'g' : result = result + code[6];
+break;
+case 'h' : result = result + code[7];
+break;
+case 'i' : result = result + code[8];
+break;
+case 'j' : result = result + code[9];
+break;
+case 'k' : result = result + code[10];
+break;
+case 'l' : result = result + code[11];
+break;
+case 'm' : result = result + code[12];
+break;
+case 'n' : result = result + code[13];
+break;
+case 'o' : result = result + code[14];
+break;
+case 'p' : result = result + code[15];
+break;
+case 'q' : result = result + code[16];
+break;
+case 'r' : result = result + code[17];
+break;
+case 's' : result = result + code[18];
+break;
+case 't' : result = result + code[19];
+break;
+case 'u' : result = result + code[20];
+break;
+case 'v' : result = result + code[21];
+break;
+case 'w' : result = result + code[22];
+break;
+case 'x' : result = result + code[23];
+break;
+case 'y' : result = result + code[24];
+break;
+case 'z' : result = result + code[24];
+break;
+default: result = result + str[i];
 }
-};
-var RockPaperScissors = function () {
-confirm("Please open the console to Play.");
-confirm("It is ctrl + shift + J in Google Chrome");
-var userChoice = prompt("Do you choose rock, paper or scissors?");
-compare(userChoice, computerChoice);
-};
-
-var computerChoice = Math.random();
-if (computerChoice < 0.34) {
-	computerChoice = "rock";
-} else if(computerChoice <= 0.67) {
-	computerChoice = "paper";
-} else {
-	computerChoice = "scissors";
 }
-var compare = function (choice1, choice2) {
-    if (choice1 === choice2) {
-        return("The result is a tie!");
-    }
-    else if (choice1 === "rock") {
-        if (choice2 === "scissors") 
-            {return "rock wins";}
-    else 
-        {return ("paper wins");}
-        
-    }
-    else if (choice1 === "paper") {
-        if (choice2 === "rock") {
-            return "paper wins";
-        }
-        else {
-            return "scissors wins";
-        }
-    }
-    else if (choice1 === "scissors") {
-        if (choice2 === "rock") {
-            return "rock wins";
-        }
-        else {
-            return "scissors wins";
-        }
-    }
-    else {
-        return "You idiot, trying to mess me up!"
-    }
-};
+return result;
+}
 
+function decode (str, code) {
+var abc = "abcdefghijklmnopqrstuvwxyz"
+code = code.toLowerCase();
+str = str.toLowerCase();
+  var ret = "";
 
+  for( i=0; i<str.length; i++ )
+  {
+    if( abc.indexOf( str.charAt(i) ) > -1 )
+    {
+      ret = ret + abc.charAt( code.indexOf(str.charAt( i )) );
+    }
+    else
+    {
+      ret = ret + str.charAt(i);
+    }
+}
+return ret;
+}
 </script>
 </head>
-
 <body>
-<h1> Javascript Programs </h1>
-<button onclick="lengthTester()">Find the Length of a Word</button>
-<button onclick="die()">Roll a Die With a Custom Number of Sides</button>
-<button onclick="RockPaperScissors()">Play Rock Paper Scissors</button>
-
-<!-- <h1> C++ Program Downloads </h1> -->
-
-<!-- <a href="C:\Programs\Guess.exe" download="Guess">Download My Guessing Game</a> -->
-
-
-
+<p> Enter Text: </p>
+<textarea rows="30" cols="80" id="x" name="x"></textarea>
+<br> <br>
+<p> Output Text: </p>
+<textarea rows="30" cols="80" id="a" name="a"></textarea>
+<p> Enter Code: </p>
+<textarea rows="1" cols="80" id="y" name="y"></textarea>
+<input type="button" value="Encode" onClick="document.getElementById('a').value = encode( document.getElementById('x').value, document.getElementById('y').value);">
+<input type="button" value="Decode" onClick="document.getElementById('a').value = decode( document.getElementById('x').value, document.getElementById('y').value);">
 </body>
 </html>
