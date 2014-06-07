@@ -1,7 +1,7 @@
 <html>
 <script type="text/javascript">
 function encode (str, code) {
-var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/?[]{}|;:'";
+var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/[]{}|;:'";
 //code = code.toLowerCase();
 //str = str.toLowerCase();
   var ret = "";
@@ -24,7 +24,7 @@ return ret;
 }
 
 function decode (str, code) {
-var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/?[]{}|;:'";
+var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/[]{}|;:'";
 //code = code.toLowerCase();
 //str = str.toLowerCase();
   var ret = "";
@@ -47,15 +47,16 @@ return ret;
 function code () {
 
 var c = "";
-var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/?[]{}|;:'";
+var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/[]{}|;:'";
 var l = abc.length;
+console.log("l is: " + l);
 var i = 0;
 var r = 0;
 //for (i = 0; i < 26; i++) 
-while (i < abc.length)
+while (i < l)
 {
 
-r = Math.floor(Math.random() * abc.length);
+r = Math.floor(Math.random() * l);
 console.log("r is: " + r);
 console.log("The letter is: " + abc[r]);
 
@@ -66,6 +67,7 @@ i++;
 console.log("c is: " + c);
 }
 }
+console.log("the length of c is: " + c.length);
 return c;
 }
 </script>
