@@ -1,71 +1,32 @@
+<html>
 <script type="text/javascript">
 function encode (str, code) {
-var result = "";
-str = str.toLowerCase();
-for (var i = 0; i < str.length; i++) {
-switch (str[i]) {
-case 'a' : result = result + code[0];
-break;
-case 'b' :result = result + code[1];
-break;
-case 'c' : result = result + code[2];
-break;
-case 'd' : result = result + code[3];
-break;
-case 'e' : result = result + code[4];
-break;
-case 'f' : result = result + code[5];
-break;
-case 'g' : result = result + code[6];
-break;
-case 'h' : result = result + code[7];
-break;
-case 'i' : result = result + code[8];
-break;
-case 'j' : result = result + code[9];
-break;
-case 'k' : result = result + code[10];
-break;
-case 'l' : result = result + code[11];
-break;
-case 'm' : result = result + code[12];
-break;
-case 'n' : result = result + code[13];
-break;
-case 'o' : result = result + code[14];
-break;
-case 'p' : result = result + code[15];
-break;
-case 'q' : result = result + code[16];
-break;
-case 'r' : result = result + code[17];
-break;
-case 's' : result = result + code[18];
-break;
-case 't' : result = result + code[19];
-break;
-case 'u' : result = result + code[20];
-break;
-case 'v' : result = result + code[21];
-break;
-case 'w' : result = result + code[22];
-break;
-case 'x' : result = result + code[23];
-break;
-case 'y' : result = result + code[24];
-break;
-case 'z' : result = result + code[24];
-break;
-default: result = result + str[i];
+var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/?[]{}|;:'";
+//code = code.toLowerCase();
+//str = str.toLowerCase();
+  var ret = "";
+
+  for( i=0; i<str.length; i++ )
+  {
+    if( code.indexOf( str.charAt(i) ) > -1 )
+    {
+      ret = ret + code.charAt( abc.indexOf(str.charAt( i )) );
+    }
+    else
+    {
+      ret = ret + str.charAt(i);
+    }
 }
-}
-return result;
+return ret;
+
+
+
 }
 
 function decode (str, code) {
-var abc = "abcdefghijklmnopqrstuvwxyz"
-code = code.toLowerCase();
-str = str.toLowerCase();
+var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/?[]{}|;:'";
+//code = code.toLowerCase();
+//str = str.toLowerCase();
   var ret = "";
 
   for( i=0; i<str.length; i++ )
@@ -86,14 +47,15 @@ return ret;
 function code () {
 
 var c = "";
-var abc = "abcdefghijklmnopqrstuvwxyz";
+var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+,.<>/?[]{}|;:'";
+var l = abc.length;
 var i = 0;
 var r = 0;
 //for (i = 0; i < 26; i++) 
-while (i < 26)
+while (i < abc.length)
 {
 
-r = Math.floor(Math.random() * 26);
+r = Math.floor(Math.random() * abc.length);
 console.log("r is: " + r);
 console.log("The letter is: " + abc[r]);
 
